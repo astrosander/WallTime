@@ -10,3 +10,14 @@ install requirements with:
 ```sh
 pip3 install -r requirements.txt
 ```
+
+## To start WallTime <a name="start-walltime"></a>
+
+Run TimerWallpaper.py
+
+```sh
+python TimerWallpaper.py
+```
+
+After the start you will sea such setting menu
+
