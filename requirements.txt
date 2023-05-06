@@ -1,0 +1,5 @@
+Babel==2.9.1
+customtkinter==5.1.2
+Pillow==9.2.0
+pystray==0.19.4
+tkcalendar==1.6.1
