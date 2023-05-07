@@ -3,7 +3,7 @@
 
 <img alt="Example of Usage" width="1000px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Example%20of%20Usage.png">
 
-## Install <a name="install"></a>
+## Install <img align="center"  width="22px" src="https://github.com/astrosander/WallTime/blob/main/Themes/download.png" />
 
 Download or clone this GitHub repository
 install requirements with:
@@ -12,7 +12,7 @@ install requirements with:
 pip3 install -r requirements.txt
 ```
 
-## To start WallTime <a name="start-walltime"></a>
+## Start WallTime ▶️
 
 Run TimerWallpaper.py
 
@@ -26,7 +26,7 @@ After launching, you will see the following settings menu
 
 Select the background colour, text colour, font size and your term. Then press OK.
 
-## Settings location <a name="Settings"></a>
+## Settings location 📁
 
 If you would like to change settings you may find it in <b>Hidden Windows Icons</b>.
 
@@ -34,11 +34,11 @@ If you would like to change settings you may find it in <b>Hidden Windows Icons<
 
 Click <em>Left</em> button or <em>Right</em> and choose <em>Settings</em>.
 
-## Config file location <a name="Config file location"></a>
+## Config file location 📄
 
 It is located in <b>"C:\Users\\%USER_NAME%\AppData\Local\DataWatch\config.ini"</b>
 
-## Themes <a name="Themes"></a>
+## Themes 🎨
 
 You can set up a <b>ready-made</b> theme in the relevant section <i>Settings->Themes</i>
 
