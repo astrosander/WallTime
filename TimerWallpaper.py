@@ -117,15 +117,14 @@ def Exit():
     f = 0
     icon.stop()
 
+def OpnFld():
+    os.startfile(DATAWATCH_PATH)
 
 icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
     pystray.MenuItem(text="Settings", action=default_function, default=True),
+    pystray.MenuItem("App Folder", OpnFld),
     pystray.MenuItem("Exit", Exit)
 ))
-
-
-
-
 
 def process1():
     while f:
@@ -146,3 +145,5 @@ if __name__ =="__main__":
  
     t1.join()
     t2.join()
+
+#C:\Users\256bit.by\AppData\Local\Programs\Python\Python310\Lib\site-packages\customtkinter
