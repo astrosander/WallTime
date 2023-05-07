@@ -1,7 +1,7 @@
 # WallTime <img align="center"  width="38px" src="https://github.com/astrosander/WallTime/blob/main/icon.png" />
 <b>Live wallpaper</b> that shows how much time you have until <b>deadline</b> 
 
-<img alt="Example of Usage" src="https://github.com/astrosander/WallTime/blob/main/Themes/Example%20of%20Usage.png">
+<img alt="Example of Usage" width="1000px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Example%20of%20Usage.png">
 
 ## Install <a name="install"></a>
 
@@ -22,7 +22,7 @@ python TimerWallpaper.py
 
 After launching, you will see the following settings menu
 
-<img alt="Settings" src="https://github.com/astrosander/WallTime/blob/main/Themes/Settings.png">
+<img alt="Settings" width="400px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Settings.png">
 
 Select the background colour, text colour, font size and your term. Then press OK.
 
@@ -44,29 +44,27 @@ You can set up a <b>ready-made</b> theme in the relevant section <i>Settings->Th
 
 <a href="https://github.com/astrosander/WallTime/tree/main/Themes">Here</a> is some example of themes and .ini file for them.
 
-<h3>Coral Reef</h3>
-<img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Coral%20Reef.png">
-
-<h3>Ember Black</h3>
-<img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Ember%20Black.png">
 
 <h3>Forest Green</h3>
-<img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Forest%20Green.png">
+<img align="center"  width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Forest%20Green.png" />
 
 <h3>Midnight Gold</h3>
-<img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Midnight%20Gold.png">
-
-<h3>Mystic Lavender</h3>
-<img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Mystic%20Lavender.png">
-
-<h3>Ocean Teal</h3>
-<img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Ocean%20Teal.png">
+<img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Midnight%20Gold.png">
 
 <h3>Royal Violet</h3>
-<img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Royal%20Violet.png">
+<img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Royal%20Violet.png">
 
+<h3>Coral Reef</h3>
+<img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Coral%20Reef.png">
 
+<h3>Mystic Lavender</h3>
+<img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Mystic%20Lavender.png">
 
+<h3>Cherry Blossom</h3>
+<img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Cherry%20Blossom.png">
+
+<h3>Jungle Green</h3>
+<img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Jungle%20Green.png">
 
 
 
