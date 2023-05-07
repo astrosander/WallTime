@@ -1,17 +1,22 @@
-import os, sys
-import time
 import ctypes
 import datetime
-from PIL import Image, ImageDraw, ImageFont
-import PIL.Image
-from configparser import ConfigParser
-import Create, Visual
-import pystray
+import os
+import sys
 import threading
+import time
 import winreg as reg
 
-THIS_FILE = os.path.abspath(__file__)
-THIS_FILE_NAME = os.path.basename(THIS_FILE)
+from configparser import ConfigParser
+from PIL import Image, ImageDraw, ImageFont
+import PIL.Image
+
+import Create
+import Visual
+
+import pystray
+from threading import Thread
+
+
 USER_PATH = os.path.expanduser('~')
 DATAWATCH_PATH = os.path.join(USER_PATH, 'AppData', 'Local', 'DataWatch')
 CONF_FILE = os.path.join(DATAWATCH_PATH, 'config.ini')
@@ -54,18 +59,17 @@ if not os.path.exists(CONF_FILE):
 
 
 def UpdateDate():
+    global BackgroundColour, TextColour, day, year, month, FONT
+
     config = ConfigParser()
     config.read(CONF_FILE)
-    global BackgroundColour, TextColour, day, year, month
 
     BackgroundColour = config['WallpaperConfig']['BackgroundColour']
     TextColour = config['WallpaperConfig']['TextColour']
+    FONT = ImageFont.truetype('arial.ttf', int(config['WallpaperConfig']['fontsize']))
     day = int(config['Date']['day'])
     year = int(config['Date']['year'])
     month = int(config['Date']['month'])
-    global FONT
-    FONT = ImageFont.truetype('arial.ttf', int(config['WallpaperConfig']['fontsize']))
-
 
 
 def get_remaining_time():
@@ -121,18 +125,12 @@ icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
 
 
 
-# icon = pystray.Icon(name="Date",icon=img,title="Date",menu=pystray.Menu(
-#     pystray.MenuItem(text="Settings",action=default_function,default=True),
-#     pystray.MenuItem(text="Exit",action=Exit,default=True)
-# ))
-
-from threading import Thread
 
 
 def process1():
     while f:
         create_image()
-        time.sleep(1)
+        time.sleep(0.5)
 
 def process2():
     icon.run()
