@@ -1,5 +1,5 @@
-# WallTime
-<b>Live wallpaper</b> that shows how much time you have until <b>deadline</b>
+# WallTime <img align="center"  width="38px" src="https://github.com/astrosander/WallTime/blob/main/icon.png" />
+<b>Live wallpaper</b> that shows how much time you have until <b>deadline</b> 
 
 <img alt="Example of Usage" src="https://github.com/astrosander/WallTime/blob/main/Themes/Example%20of%20Usage.png">
 
@@ -20,11 +20,11 @@ Run TimerWallpaper.py
 python TimerWallpaper.py
 ```
 
-After the start you will sea such setting menu
+After launching, you will see the following settings menu
 
 <img alt="Settings" src="https://github.com/astrosander/WallTime/blob/main/Themes/Settings.png">
 
-Choose background color, color of text, size of font and your deadline. Than press "Ok". Done.
+Select the background colour, text colour, font size and your term. Then press OK.
 
 ## Settings location <a name="Settings"></a>
 
@@ -40,11 +40,12 @@ It is located in <b>"C:\Users\\%USER_NAME%\AppData\Local\DataWatch\config.ini"</
 
 ## Themes <a name="Themes"></a>
 
+You can set up a <b>ready-made</b> theme in the relevant section <i>Settings->Themes</i>
+
 <a href="https://github.com/astrosander/WallTime/tree/main/Themes">Here</a> is some example of themes and .ini file for them.
 
 <h3>Coral Reef</h3>
 <img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Coral%20Reef.png">
-
 
 <h3>Ember Black</h3>
 <img alt="Hidden Windows Icons" src="https://github.com/astrosander/WallTime/blob/main/Themes/Ember%20Black.png">
