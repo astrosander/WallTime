@@ -1,5 +1,5 @@
 # WallTime
-A python application that creates an image with the remaining time to expiry, sets it as the wallpaper, with access to full customization of all settings using the GUI.
+<b>Live wallpaper</b> that shows how much time you have until <b>deadline</b>
 
 <img alt="Example of Usage" src="https://github.com/astrosander/WallTime/blob/main/Themes/Example%20of%20Usage.png">
 
