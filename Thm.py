@@ -9,9 +9,10 @@ dflt = {
     "Mystic Lavender": ["#7f00ff", "#ec9787"],
     "Ocean Teal": ["#1C262B", "#009688"],
     "Royal Violet": ["#2E294E", "#9C27B0"],
-    "Steel Blue": ["#333333", "#add8e6"],
-    "Sunset Blue": ["#5763f7", "#ff8000"]
-}
+    "Cherry Blossom": ["#F8BBD0", "#C2185B"],
+	"Jungle Green": ["#2E7D32", "#8BC34A"],
+	"Charcoal": ["#36454f", "#e0e0e0"]
+	}
 def Themes(choice, conf_file):
     config = ConfigParser()
     config.read(conf_file)
