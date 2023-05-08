@@ -6,53 +6,39 @@ import Calendar
 import customtkinter, tkinter
 import math
 import Thm
-from Thm import Themes 
+from Thm import Themes
+import ChangeCfg 
 
-CONF_FILE = f"D:\\coding\\TimerWallpaper\\config.ini"
-config = ConfigParser()
-
-
-def SetData(sss, f):
-    global config
-    config.read(CONF_FILE)
-
-    # print(CONF_FILE)
-    if f == 1:
-        config.set('WallpaperConfig','textcolour', sss)
-    elif f == 2:
-        config.set('WallpaperConfig','fontsize', sss)
-    else: 
-        config.set('WallpaperConfig','BackgroundColour', sss)
-
-    with open(CONF_FILE, 'w') as configfile:
-        config.write(configfile)
-
-def ColorChooser(f):
-    color_code = colorchooser.askcolor(title="Choose text color")
-
-    if(color_code[1] != None):
-        SetData(str(color_code[1]), f)
-
-
-def Background_color(): ColorChooser(0)
-def Text_color(): ColorChooser(1)
-
-def Calend():
-    Calendar.lol(CONF_FILE)
-
-
-
+# CONF_FILE = f"D:\\coding\\TimerWallpaper\\config.ini"
 
 customtkinter.set_appearance_mode("default")  # Modes: system (default), light, dark
 customtkinter.set_default_color_theme("green")  # Themes: blue (default), dark-blue, green
 
-def Settings(conf_file):
-    global CONF_FILE
-    CONF_FILE = conf_file
-    # config = customtkinter.ConfigParser()
-    config.read(CONF_FILE)
+def Settings(CONF_FILE):
 
+    def ColorChooser(f):
+        color_code = colorchooser.askcolor(title="Choose text color")
+
+        if(color_code[1] != None):
+            if f == 0:
+                ChangeCfg.change_config('WallpaperConfig','BackgroundColour', str(color_code[1]), CONF_FILE)
+            else:
+                ChangeCfg.change_config('WallpaperConfig','textcolour', str(color_code[1]), CONF_FILE)
+
+
+    def Background_color(): 
+        ColorChooser(0)
+
+    def Text_color(): 
+        ColorChooser(1)
+
+    def Calend():
+        Calendar.lol(CONF_FILE)
+
+
+    config = ChangeCfg.read_config(CONF_FILE)
     app = customtkinter.CTk()
+
     try:
         app.iconbitmap('icon.ico')
     except:
@@ -64,7 +50,8 @@ def Settings(conf_file):
     def slider_event(value):
         val = math.floor(value)
         label.configure(text="Font size:\n"+str(val))
-        SetData(str(val), 2)
+        ChangeCfg.change_config('WallpaperConfig','fontsize', str(val), CONF_FILE)
+
 
     def app_destroy():
         app.destroy()

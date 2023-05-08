@@ -5,13 +5,16 @@ import sys
 import threading
 import time
 import winreg as reg
+import keyboard
 
-from configparser import ConfigParser
 from PIL import Image, ImageDraw, ImageFont
 import PIL.Image
 
 import Create
 import Visual
+import active
+import ChangeCfg
+# import KeyFontSize
 
 import pystray
 from threading import Thread
@@ -47,6 +50,7 @@ except:
 key = reg.OpenKey(reg. HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", 0, reg.KEY_ALL_ACCESS) 
 reg.SetValueEx(key, "DateTime01", 0, reg.REG_SZ, sys.argv[0])
 
+print(os.path.basename(__file__))
 
 if not os.path.exists(DATAWATCH_PATH):
     os.makedirs(DATAWATCH_PATH)
@@ -61,8 +65,7 @@ if not os.path.exists(CONF_FILE):
 def UpdateDate():
     global BackgroundColour, TextColour, day, year, month, FONT
 
-    config = ConfigParser()
-    config.read(CONF_FILE)
+    config = ChangeCfg.read_config(CONF_FILE)
 
     BackgroundColour = config['WallpaperConfig']['BackgroundColour']
     TextColour = config['WallpaperConfig']['TextColour']
@@ -90,15 +93,17 @@ def create_image():
     image = Image.new('RGB', (1920, 1080), color=(BackgroundColour))
     draw = ImageDraw.Draw(image)
     text = get_remaining_time()
-    text_width, text_height = draw.textsize(text, FONT)
-    x = (image.width - text_width) // 2
-    y = (image.height - text_height) // 2
+    text_bbox = draw.textbbox((0, 0), text, font=FONT)
+    x = (image.width - text_bbox[2]) // 2
+    y = (image.height - text_bbox[3]) // 2
     draw.text((x, y), text, fill=(TextColour), font=FONT)
     
     path = f"{DATAWATCH_PATH}/Wallpaper.png"
 
     image.save(path)
     ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, path, 0)
+
+    print(text)
 
 
 def default_function():
@@ -110,6 +115,8 @@ icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
     pystray.MenuItem(text="Settings", action=default_function, default=True),
     pystray.MenuItem("Exit", default_function)
 ))
+
+# icon = pystray.Icon(name="Date")
 
 
 def Exit():
@@ -126,24 +133,31 @@ icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
     pystray.MenuItem("Exit", Exit)
 ))
 
+
 def process1():
     while f:
-        create_image()
-        time.sleep(0.5)
+        if active.is_desktop_active():
+            create_image()
+        else:
+            print("Waiting for a request")
+        
+        time.sleep(0.4)
 
 def process2():
     icon.run()
 
 
+
 if __name__ =="__main__":
-    
+    print("WallTime is started")
+
     t1 = threading.Thread(target=process1)
     t2 = threading.Thread(target=process2)
-
+    
     t1.start()
     t2.start()
- 
+    
     t1.join()
     t2.join()
-
+    
 #C:\Users\256bit.by\AppData\Local\Programs\Python\Python310\Lib\site-packages\customtkinter

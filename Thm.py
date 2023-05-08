@@ -1,4 +1,5 @@
 from configparser import ConfigParser
+import ChangeCfg 
 
 dflt = {
     "Coral Reef": ["#008080", "#FF7F50"],
@@ -13,12 +14,7 @@ dflt = {
 	"Jungle Green": ["#2E7D32", "#8BC34A"],
 	"Charcoal": ["#36454f", "#e0e0e0"]
 	}
-def Themes(choice, conf_file):
-    config = ConfigParser()
-    config.read(conf_file)
-    
-    config.set('WallpaperConfig', 'backgroundcolour', dflt[choice][0])
-    config.set('WallpaperConfig', 'textcolour', dflt[choice][1])
 
-    with open(conf_file, 'w') as configfile:
-        config.write(configfile)
+def Themes(choice, conf_file):
+    ChangeCfg.change_config('WallpaperConfig','backgroundcolour', dflt[choice][0], CONF_FILE)
+    ChangeCfg.change_config('WallpaperConfig','textcolour', dflt[choice][1], CONF_FILE)
