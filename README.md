@@ -3,7 +3,15 @@
 
 <img alt="Example of Usage" width="1000px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Example%20of%20Usage.png">
 
-## Install <img align="center"  width="22px" src="https://github.com/astrosander/WallTime/blob/main/Themes/download.png" />
+## Quick start▶️
+
+You can just download .exe file:
+
+https://github.com/astrosander/WallTime/releases/tag/WallTime
+
+Or install with python:
+
+## Python Installation <img align="center"  width="22px" src="https://github.com/astrosander/WallTime/blob/main/Themes/download.png" />
 
 Download or clone this GitHub repository
 install requirements with:
