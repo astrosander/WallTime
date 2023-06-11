@@ -1,7 +1,15 @@
-# WallTime <img align="center"  width="38px" src="https://github.com/astrosander/WallTime/blob/main/icon.png" />
+<h1><p align="center">WallTime</p></h1>
+
+<p align="center">
+  <a href="https://github.com/astrosander/WallTime" target="blank"><img src="https://github.com/astrosander/WallTime/blob/main/icon.png" width="120" alt="Nest Logo" /></a>
+</p>
+
+<p align="center">A progressive <a href="https://github.com/astrosander/WallTime" target="_blank">WallTime</a> framework for time management and tracking time to deadline.</p>
+
+# Description ✒️
 <b>Live wallpaper</b> that shows how much time you have until <b>deadline</b> 
 
-<img alt="Example of Usage" width="1000px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Example%20of%20Usage.png">
+![](Themes/Presentation.gif)
 
 ## Quick start▶️
 
