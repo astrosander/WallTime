@@ -11,7 +11,7 @@ https://github.com/astrosander/WallTime/releases/tag/WallTime
 
 Or install with python:
 
-## Python Installation <img align="center"  width="22px" src="https://github.com/astrosander/WallTime/blob/main/Themes/download.png" />
+## Python Installation <img align="center"  width="28px" src="https://github.com/astrosander/WallTime/blob/main/Themes/snakes.png" />
 
 Download or clone this GitHub repository
 install requirements with:
