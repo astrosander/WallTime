@@ -14,6 +14,7 @@ import ChangeCfg
 customtkinter.set_appearance_mode("default")  # Modes: system (default), light, dark
 customtkinter.set_default_color_theme("green")  # Themes: blue (default), dark-blue, green
 
+
 def Settings(CONF_FILE):
 
     def ColorChooser(f):
@@ -33,11 +34,13 @@ def Settings(CONF_FILE):
         ColorChooser(1)
 
     def Calend():
-        Calendar.lol(CONF_FILE)
+        Calendar.lol(CONF_FILE, 0)
 
 
     config = ChangeCfg.read_config(CONF_FILE)
     app = customtkinter.CTk()
+
+    check_var = tkinter.IntVar(value=int(config['Date']['base_argument']))
 
     try:
         app.iconbitmap('icon.ico')
@@ -52,6 +55,8 @@ def Settings(CONF_FILE):
         label.configure(text="Font size:\n"+str(val))
         ChangeCfg.change_config('WallpaperConfig','fontsize', str(val), CONF_FILE)
 
+    def combobox_callback(choice):
+        Thm.Themes(choice, CONF_FILE)
 
     def app_destroy():
         app.destroy()
@@ -61,7 +66,9 @@ def Settings(CONF_FILE):
 
     h = 40
 
-    label.place(relx=0.5, rely=0.625, anchor=customtkinter.CENTER)
+    def checkbox_event():
+        ChangeCfg.change_config('Date','base_argument', str(check_var.get()), CONF_FILE)
+    
 
     button = customtkinter.CTkButton(master=app, text="Color of background", command=Background_color, width=180, height=h, font=("Sans-serif.ttf", 15))
     button.place(relx=0.5, rely=0.2, anchor=customtkinter.CENTER)
@@ -69,28 +76,32 @@ def Settings(CONF_FILE):
     button1 = customtkinter.CTkButton(master=app, text="Color of text", command=Text_color, width=180, height=h, font=("Sans-serif.ttf", 15))
     button1.place(relx=0.5, rely=0.325, anchor=customtkinter.CENTER)
 
-    button2 = customtkinter.CTkButton(master=app, text="Change purpose date", command=Calend, width=180, height=h, font=("Sans-serif.ttf", 15))
-    button2.place(relx=0.5, rely=0.45, anchor=customtkinter.CENTER)
+    label.place(relx=0.5, rely=0.45, anchor=customtkinter.CENTER)#0.6
 
     slider = customtkinter.CTkSlider(master=app, from_=10, to=100, command=slider_event)
-    slider.place(relx=0.5, rely=0.725, anchor=customtkinter.CENTER)
+    slider.place(relx=0.5, rely=0.525, anchor=customtkinter.CENTER)#0.675
     slider.set(int(fontsize))
 
-    def combobox_callback(choice):
-        Themes(choice, CONF_FILE)
+    button2 = customtkinter.CTkButton(master=app, text="Change purpose date", command=Calend, width=180, height=h, font=("Sans-serif.ttf", 15))
+    button2.place(relx=0.5, rely=0.675, anchor=customtkinter.CENTER)#0.45
 
     combobox = customtkinter.CTkComboBox(master=app, values=list(Thm.dflt.keys()), command=combobox_callback, fg_color="#30a474", button_color="#30a474", border_color = "#30a474")
     combobox.pack(padx=20, pady=10)
     combobox.set("Themes")  # set initial value
 
     button3 = customtkinter.CTkButton(master=app, text="Ok", command=app_destroy, width=80, height=h, fg_color=("#F44336"))
-    button3.place(relx=0.5, rely=0.875, anchor=customtkinter.CENTER)
+    button3.place(relx=0.5, rely=0.925, anchor=customtkinter.CENTER)
+
+    checkbox = customtkinter.CTkCheckBox(master=app, text="Show pensents", command=checkbox_event,
+                                         variable=check_var, onvalue=1, offvalue=0)
+    checkbox.pack(padx=20, pady=10)
+    checkbox.place(relx=0.5, rely=0.775, anchor=customtkinter.CENTER)
 
     app.mainloop()
 
 
 
-# Settings(r'C:\Users\256bit.by\AppData\Local\DataWatch\config.ini')
+# Settings(r'C:\Users\256bit.by\AppData\Local\DataWatch\config.ini'))
 
 
 

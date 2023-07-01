@@ -14,7 +14,6 @@ import Create
 import Visual
 import active
 import ChangeCfg
-# import KeyFontSize
 
 import pystray
 from threading import Thread
@@ -23,6 +22,7 @@ from threading import Thread
 USER_PATH = os.path.expanduser('~')
 DATAWATCH_PATH = os.path.join(USER_PATH, 'AppData', 'Local', 'DataWatch')
 CONF_FILE = os.path.join(DATAWATCH_PATH, 'config.ini')
+APP_NAME = os.path.basename(__file__).split('.')[0]
 
 SPI_SETDESKWALLPAPER = 20
 BackgroundColour = '#000000'
@@ -31,6 +31,8 @@ day=23
 month=12
 year=2040
 FONT = ImageFont.truetype('arial.ttf', 36)
+BasementRatio = 100000
+base_argument = 0
 
 
 def resource_path(relative_path):
@@ -43,14 +45,13 @@ def resource_path(relative_path):
 
 try:
     img = Image.open(resource_path("icon.png"))
-    # img = Image.open("icon.png")
 except:
     pass
 
 key = reg.OpenKey(reg. HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", 0, reg.KEY_ALL_ACCESS) 
-reg.SetValueEx(key, "DateTime01", 0, reg.REG_SZ, sys.argv[0])
+reg.SetValueEx(key, "WallTime", 0, reg.REG_SZ, sys.argv[0])
 
-print(os.path.basename(__file__))
+print(APP_NAME)
 
 if not os.path.exists(DATAWATCH_PATH):
     os.makedirs(DATAWATCH_PATH)
@@ -63,7 +64,7 @@ if not os.path.exists(CONF_FILE):
 
 
 def UpdateDate():
-    global BackgroundColour, TextColour, day, year, month, FONT
+    global BackgroundColour, TextColour, day, year, month, FONT, BasementRatio, base_argument
 
     config = ChangeCfg.read_config(CONF_FILE)
 
@@ -73,6 +74,11 @@ def UpdateDate():
     day = int(config['Date']['day'])
     year = int(config['Date']['year'])
     month = int(config['Date']['month'])
+    BasementRatio = int(config['Date']['base'])
+    base_argument = int(config['Date']['base_argument'])
+    print(base_argument)
+
+
 
 
 def get_remaining_time():
@@ -82,12 +88,16 @@ def get_remaining_time():
     days = remaining_time.days
     hours, rem = divmod(remaining_time.seconds, 3600)
     minutes, seconds = divmod(rem, 60)
+    percentage = 100 - remaining_time.total_seconds()/(BasementRatio*864)
 
-    return f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds"
+    fin = f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds"
+
+    if(base_argument):
+        fin = fin + f"\n\n                         {percentage:.4f} %"
+
+    return fin 
 
 def create_image():
-    # global BackgroundColour, TextColour, day, year, month
-
     UpdateDate()
 
     image = Image.new('RGB', (1920, 1080), color=(BackgroundColour))
@@ -136,7 +146,7 @@ icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
 
 def process1():
     while f:
-        if active.is_desktop_active():
+        if active.is_desktop_active(APP_NAME):
             create_image()
         else:
             print("Waiting for a request")
@@ -160,4 +170,4 @@ if __name__ =="__main__":
     t1.join()
     t2.join()
     
-#C:\Users\256bit.by\AppData\Local\Programs\Python\Python310\Lib\site-packages\customtkinter
+# C:\Users\256bit.by\AppData\Local\Programs\Python\Python310\Lib\site-packages\customtkinter

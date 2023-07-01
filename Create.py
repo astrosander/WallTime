@@ -15,9 +15,11 @@ def crt(CONF_FILE):
     config.set('Date', 'day', '19')
     config.set('Date', 'month', '5')
     config.set('Date', 'year', '2043')
+    config.set('Date', 'base', '9999999999')
+    config.set('Date', 'base_argument', '0')
 
     with open(CONF_FILE, 'w') as configfile:   
         config.write(configfile)
 
-
+# crt(r'C:\Users\256bit.by\AppData\Local\DataWatch\config.ini')
 
