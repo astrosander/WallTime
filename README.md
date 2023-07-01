@@ -9,7 +9,11 @@
 # Description ✒️
 <b>Live wallpaper</b> that shows how much time you have until <b>deadline</b> 
 
-![](Themes/Presentation.gif)
+
+
+https://github.com/astrosander/WallTime/assets/69795340/99e89946-4ebf-441d-9496-40d05dc35a84
+
+
 
 ## Quick start▶️
 
