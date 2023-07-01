@@ -1,5 +1,9 @@
-Babel==2.9.1
-customtkinter==5.1.2
-Pillow==9.2.0
-pystray==0.19.4
-tkcalendar==1.6.1
+Babel==1.3
+customtkinter==5.0.0
+keyboard==0.13.5
+Pillow==8.0.1
+psutil==5.9.5
+pynput==1.7.6
+pystray==0.18.0
+pywin32==306
+tkcalendar==1.2.1
