@@ -56,7 +56,7 @@ Click <em>Left</em> button or <em>Right</em> and choose <em>Settings</em>.
 
 ## Config file location 📄
 
-It is located in <b>"%USERPROFILE%\AppData\Local\DataWatch\config.ini"</b>
+It is located in ```%USERPROFILE%\AppData\Local\DataWatch\config.ini```
 
 ## Themes 🎨
 
