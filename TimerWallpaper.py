@@ -6,7 +6,8 @@ import threading
 import time
 import winreg as reg
 import keyboard
-
+import pystray
+from threading import Thread
 from PIL import Image, ImageDraw, ImageFont
 import PIL.Image
 
@@ -14,9 +15,7 @@ import Create
 import Visual
 import active
 import ChangeCfg
-
-import pystray
-from threading import Thread
+import Console
 
 
 USER_PATH = os.path.expanduser('~')
@@ -27,9 +26,9 @@ APP_NAME = os.path.basename(__file__).split('.')[0]
 SPI_SETDESKWALLPAPER = 20
 BackgroundColour = '#000000'
 TextColour = "#ffffff"
-day=23
-month=12
-year=2040
+day = 23
+month = 12
+year = 2040
 FONT = ImageFont.truetype('arial.ttf', 36)
 BasementRatio = 100000
 base_argument = 0
@@ -50,8 +49,6 @@ except:
 
 key = reg.OpenKey(reg. HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Run", 0, reg.KEY_ALL_ACCESS) 
 reg.SetValueEx(key, "WallTime", 0, reg.REG_SZ, sys.argv[0])
-
-print(APP_NAME)
 
 if not os.path.exists(DATAWATCH_PATH):
     os.makedirs(DATAWATCH_PATH)
@@ -140,6 +137,7 @@ def OpnFld():
 icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
     pystray.MenuItem(text="Settings", action=default_function, default=True),
     pystray.MenuItem("App Folder", OpnFld),
+    pystray.MenuItem("Developer console", Console.console),
     pystray.MenuItem("Exit", Exit)
 ))
 
