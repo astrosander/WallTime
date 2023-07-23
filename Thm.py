@@ -12,8 +12,9 @@ dflt = {
     "Royal Violet": ["#2E294E", "#9C27B0"],
     "Cherry Blossom": ["#F8BBD0", "#C2185B"],
 	"Jungle Green": ["#2E7D32", "#8BC34A"],
+    "Sublime": ["#21272d", "#d67410"],
 	"Charcoal": ["#36454f", "#e0e0e0"]
-	}
+}
 
 def Themes(choice, conf_file):
     ChangeCfg.change_config('WallpaperConfig','backgroundcolour', dflt[choice][0], conf_file)
