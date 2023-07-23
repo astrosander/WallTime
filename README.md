@@ -64,6 +64,8 @@ You can set up a <b>ready-made</b> theme in the relevant section <i>Settings->Th
 
 <a href="https://github.com/astrosander/WallTime/tree/main/Themes">Here</a> is some example of themes and .ini file for them.
 
+<h3>Sublime</h3>
+<img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/assets/69795340/78645e30-9f98-4750-8777-3564d6bf957e">
 
 <h3>Forest Green</h3>
 <img align="center"  width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Forest%20Green.png" />
@@ -85,6 +87,5 @@ You can set up a <b>ready-made</b> theme in the relevant section <i>Settings->Th
 
 <h3>Jungle Green</h3>
 <img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Jungle%20Green.png">
-
 
 
