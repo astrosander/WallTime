@@ -1,6 +1,6 @@
 from configparser import ConfigParser
 
-def change_config(section, option, value, config_file_path):
+def change_config(section, option, value, config_file_path):# section, option from the section, value of option, path to the .ini file
     config = ConfigParser()
     config.read(config_file_path)
 
@@ -9,7 +9,7 @@ def change_config(section, option, value, config_file_path):
     with open(config_file_path, 'w') as configfile:
         config.write(configfile)
 
-def read_config(config_file_path):
+def read_config(config_file_path):#path to the .ini file
     
     config = ConfigParser()
     config.read(config_file_path)

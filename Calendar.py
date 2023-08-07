@@ -6,12 +6,6 @@ from datetime import datetime
 import babel.numbers
 import ChangeCfg 
 
-
-def calculate_time_difference(start_date, end_date):
-    date_format = "%Y-%m-%d"  # Format of the dates
-    time_difference = datetime.strptime(end_date) - datetime.strptime(start_date)
-    return time_difference
-
 def lol(CONF_FILE, f):
     
 
@@ -44,7 +38,7 @@ def lol(CONF_FILE, f):
     val = ChangeCfg.read_config(CONF_FILE)
     # print(val)
 
-    if(f):
+    if(f or val['Date']['year'] == '2043'):
         cal = Calendar(root, selectmode = "day", year = int(datetime.today().year), month = int(datetime.today().month), day = int(datetime.today().day), cursor="hand1")
     else:
         cal = Calendar(root, selectmode = "day", year = int(val['Date']['year']), month = int(val['Date']['month']), day = int(val['Date']['day']), cursor="hand1")

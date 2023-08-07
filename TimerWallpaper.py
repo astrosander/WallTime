@@ -144,16 +144,18 @@ icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
 
 def process1():
     while f:
-        if active.is_desktop_active(APP_NAME):
-            create_image()
-        else:
-            print("Waiting for a request")
+        try:
+            if active.is_desktop_active(APP_NAME):
+                create_image()
+            else:
+                print("Waiting for a request")
+        except:
+            pass
         
         time.sleep(0.4)
 
 def process2():
     icon.run()
-
 
 
 if __name__ =="__main__":
