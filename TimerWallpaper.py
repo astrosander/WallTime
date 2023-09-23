@@ -25,6 +25,7 @@ APP_NAME = os.path.basename(__file__).split('.')[0]
 
 SPI_SETDESKWALLPAPER = 20
 BackgroundColour = '#000000'
+BackgroundImg = ""
 TextColour = "#ffffff"
 day = 23
 month = 12
@@ -32,7 +33,8 @@ year = 2040
 FONT = ImageFont.truetype('arial.ttf', 36)
 BasementRatio = 100000
 base_argument = 0
-
+IsShow = True
+f = 1
 
 def resource_path(relative_path):
     try:
@@ -54,18 +56,18 @@ if not os.path.exists(DATAWATCH_PATH):
     os.makedirs(DATAWATCH_PATH)
 
 if not os.path.exists(CONF_FILE):
-
     Create.crt(CONF_FILE)
     Visual.Settings(CONF_FILE)
 
 
 
 def UpdateDate():
-    global BackgroundColour, TextColour, day, year, month, FONT, BasementRatio, base_argument
+    global BackgroundColour, TextColour, day, year, month, FONT, BasementRatio, base_argument, BackgroundImg
 
     config = ChangeCfg.read_config(CONF_FILE)
 
     BackgroundColour = config['WallpaperConfig']['BackgroundColour']
+    BackgroundImg = config['WallpaperConfig']['FolderPath']
     TextColour = config['WallpaperConfig']['TextColour']
     FONT = ImageFont.truetype('arial.ttf', int(config['WallpaperConfig']['fontsize']))
     day = int(config['Date']['day'])
@@ -73,7 +75,7 @@ def UpdateDate():
     month = int(config['Date']['month'])
     BasementRatio = int(config['Date']['base'])
     base_argument = int(config['Date']['base_argument'])
-    print(base_argument)
+    # print(base_argument)
 
 
 
@@ -97,7 +99,15 @@ def get_remaining_time():
 def create_image():
     UpdateDate()
 
-    image = Image.new('RGB', (1920, 1080), color=(BackgroundColour))
+    if len(BackgroundImg)>2:
+        try:
+            image = Image.open(BackgroundImg)
+            image = image.resize((1920, 1080))
+        except:
+            image = Image.new('RGB', (1920, 1080), color=BackgroundColour)
+    else:
+        image = Image.new('RGB', (1920, 1080), color=BackgroundColour)
+
     draw = ImageDraw.Draw(image)
     text = get_remaining_time()
     text_bbox = draw.textbbox((0, 0), text, font=FONT)
@@ -116,26 +126,22 @@ def create_image():
 def default_function():
     Visual.Settings(CONF_FILE)
 
-f = 1
-
-icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
-    pystray.MenuItem(text="Settings", action=default_function, default=True),
-    pystray.MenuItem("Exit", default_function)
-))
-
-# icon = pystray.Icon(name="Date")
-
 
 def Exit():
     global f
     f = 0
     icon.stop()
 
+def PauseClicked():
+    global IsShow
+    IsShow = not IsShow
+
 def OpnFld():
     os.startfile(DATAWATCH_PATH)
 
 icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
     pystray.MenuItem(text="Settings", action=default_function, default=True),
+    pystray.MenuItem("Pause", PauseClicked),
     pystray.MenuItem("App Folder", OpnFld),
     pystray.MenuItem("Developer console", Console.console),
     pystray.MenuItem("Exit", Exit)
@@ -145,7 +151,7 @@ icon = pystray.Icon(name="Date", icon=img, title="Date", menu=pystray.Menu(
 def process1():
     while f:
         try:
-            if active.is_desktop_active(APP_NAME):
+            if active.is_desktop_active(APP_NAME) and IsShow:
                 create_image()
             else:
                 print("Waiting for a request")

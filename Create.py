@@ -12,6 +12,7 @@ def crt(CONF_FILE):
     config.set('WallpaperConfig', 'backgroundcolour', '#8fb195')
     config.set('WallpaperConfig', 'textcolour', '#f88f49')
     config.set('WallpaperConfig', 'fontsize', '50')
+    config.set('WallpaperConfig', 'FolderPath', '-')
     config.set('Date', 'day', '19')
     config.set('Date', 'month', '5')
     config.set('Date', 'year', '2043')

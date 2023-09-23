@@ -8,6 +8,7 @@ import math
 import Thm
 from Thm import Themes
 import ChangeCfg 
+from tkinter import filedialog
 
 # CONF_FILE = f"D:\\coding\\TimerWallpaper\\config.ini"
 
@@ -29,6 +30,12 @@ def Settings(CONF_FILE):
 
     def Background_color(): 
         ColorChooser(0)
+
+    def select_file():
+        file_path = filedialog.askopenfilename()
+        if file_path:
+            ChangeCfg.change_config('WallpaperConfig','FolderPath', file_path, CONF_FILE)
+            print(file_path)
 
     def Text_color(): 
         ColorChooser(1)
@@ -70,8 +77,11 @@ def Settings(CONF_FILE):
         ChangeCfg.change_config('Date','base_argument', str(check_var.get()), CONF_FILE)
     
 
-    button = customtkinter.CTkButton(master=app, text="Color of background", command=Background_color, width=180, height=h, font=("Sans-serif.ttf", 15))
-    button.place(relx=0.5, rely=0.2, anchor=customtkinter.CENTER)
+    button = customtkinter.CTkButton(master=app, text="Color of background", command=Background_color, width=150, height=h, font=("Sans-serif.ttf", 15))
+    button.place(relx=0.45, rely=0.2, anchor=customtkinter.CENTER)
+    
+    button = customtkinter.CTkButton(master=app, text="📂", command=select_file, width=25, height=h, font=("Sans-serif.ttf", 15))
+    button.place(relx=0.7, rely=0.2, anchor=customtkinter.CENTER)
 
     button1 = customtkinter.CTkButton(master=app, text="Color of text", command=Text_color, width=180, height=h, font=("Sans-serif.ttf", 15))
     button1.place(relx=0.5, rely=0.325, anchor=customtkinter.CENTER)
@@ -101,7 +111,7 @@ def Settings(CONF_FILE):
 
 
 
-# Settings(r'C:\Users\256bit.by\AppData\Local\DataWatch\config.ini'))
+# Settings(r'C:\Users\256bit.by\AppData\Local\DataWatch\config.ini')
 
 
 
