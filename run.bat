@@ -1,0 +1,2 @@
+python TimerWallpaper.py
+pause 

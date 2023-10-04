@@ -19,3 +19,4 @@ dflt = {
 def Themes(choice, conf_file):
     ChangeCfg.change_config('WallpaperConfig','backgroundcolour', dflt[choice][0], conf_file)
     ChangeCfg.change_config('WallpaperConfig','textcolour', dflt[choice][1], conf_file)
+    ChangeCfg.change_config('WallpaperConfig', 'FolderPath', '-', conf_file)

@@ -75,9 +75,6 @@ def UpdateDate():
     month = int(config['Date']['month'])
     BasementRatio = int(config['Date']['base'])
     base_argument = int(config['Date']['base_argument'])
-    # print(base_argument)
-
-
 
 
 def get_remaining_time():
@@ -110,6 +107,8 @@ def create_image():
 
     draw = ImageDraw.Draw(image)
     text = get_remaining_time()
+
+
     text_bbox = draw.textbbox((0, 0), text, font=FONT)
     x = (image.width - text_bbox[2]) // 2
     y = (image.height - text_bbox[3]) // 2

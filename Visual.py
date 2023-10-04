@@ -24,6 +24,7 @@ def Settings(CONF_FILE):
         if(color_code[1] != None):
             if f == 0:
                 ChangeCfg.change_config('WallpaperConfig','BackgroundColour', str(color_code[1]), CONF_FILE)
+                ChangeCfg.change_config('WallpaperConfig', 'FolderPath', '-', CONF_FILE)
             else:
                 ChangeCfg.change_config('WallpaperConfig','textcolour', str(color_code[1]), CONF_FILE)
 
