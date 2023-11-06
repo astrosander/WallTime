@@ -1,14 +1,22 @@
-<h1><p align="center">WallTime</p></h1>
+<div align="center">
+  <h1>
+    WallTime
+  </h1>
+</div>
 
-<p align="center">
-  <a href="https://github.com/astrosander/WallTime" target="blank"><img src="firmware/icon.png" width="120" alt="WAallTime Logo" /></a>
-</p>
 
-<p align="center">A progressive <a href="https://github.com/astrosander/WallTime" target="_blank">WallTime</a> framework for time management and tracking time to deadline.</p>
+<div align="center">
+  <a href="https://github.com/astrosander/WallTime" target="blank">
+    <img src="firmware/icon.png" width="120" alt="WallTime Logo" />
+  </a>
+</div>
+
+<div align="center">
+  A progressive <a href="https://github.com/astrosander/WallTime" target="_blank">WallTime</a> framework for time management and tracking time to deadline.
+</div>
 
 # Description ✒️
 <b>Live wallpaper</b> that shows how much time you have until <b>deadline</b> 
-
 
 
 https://github.com/astrosander/WallTime/assets/69795340/99e89946-4ebf-441d-9496-40d05dc35a84
@@ -25,11 +33,11 @@ Or install with python:
 
 ## Python Installation <img align="center"  width="28px" src="https://github.com/astrosander/WallTime/blob/main/Themes/snakes.png" />
 
-Download or clone this GitHub repository
-install requirements with:
+Clone this repository and open `firmware` folder<br>
+Install requirements with:
 
 ```sh
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Start WallTime ▶️
