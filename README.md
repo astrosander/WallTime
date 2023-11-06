@@ -1,7 +1,7 @@
 <h1><p align="center">WallTime</p></h1>
 
 <p align="center">
-  <a href="https://github.com/astrosander/WallTime" target="blank"><img src="https://github.com/astrosander/WallTime/blob/main/icon.png" width="120" alt="Nest Logo" /></a>
+  <a href="https://github.com/astrosander/WallTime" target="blank"><img src="firmware/icon.png" width="120" alt="WAallTime Logo" /></a>
 </p>
 
 <p align="center">A progressive <a href="https://github.com/astrosander/WallTime" target="_blank">WallTime</a> framework for time management and tracking time to deadline.</p>
