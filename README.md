@@ -87,9 +87,6 @@ You can set up a <b>ready-made</b> theme in the relevant section <i>Settings->Th
 <h3>Coral Reef</h3>
 <img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Coral%20Reef.png">
 
-<h3>Mystic Lavender</h3>
-<img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Mystic%20Lavender.png">
-
 <h3>Cherry Blossom</h3>
 <img alt="Hidden Windows Icons" width="800px" src="https://github.com/astrosander/WallTime/blob/main/Themes/Cherry%20Blossom.png">
 
